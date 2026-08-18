@@ -198,45 +198,45 @@ export default function Home() {
             {/* BUTTONS */}
             <div className="flex flex-col gap-3">
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(255, 0, 0, 0.8)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 42px rgba(66, 133, 244, 0.8)" }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
-                className="w-full py-3 md:py-4 px-4 md:px-6 rounded-lg text-xs md:text-sm tracking-[0.1em] relative overflow-hidden group font-bold transition-all"
+                className="w-full py-3 md:py-4 px-4 md:px-6 rounded-xl text-xs md:text-sm tracking-[0.12em] relative overflow-hidden group font-bold transition-all"
                 style={{
-                  background: "linear-gradient(135deg, #990000, #660000)",
-                  border: "2px solid #ff0000",
-                  boxShadow: "0 0 15px rgba(255, 0, 0, 0.4), inset 0 0 15px rgba(255, 0, 0, 0.1)",
+                  background: "linear-gradient(135deg, #0b3d91, #1a5ed9)",
+                  border: "2px solid rgba(96, 165, 250, 0.9)",
+                  boxShadow: "0 0 20px rgba(59, 130, 246, 0.45), inset 0 0 20px rgba(255,255,255,0.12)",
                 }}
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: "linear-gradient(135deg, #cc0000, #990000)" }}
+                  style={{ background: "linear-gradient(135deg, rgba(96,165,250,0.38), rgba(29,78,216,0.28))" }}
                 />
-                <span className="relative text-white tracking-[0.1em] text-xs md:text-sm font-bold flex items-center justify-center gap-2">
+                <span className="relative text-white tracking-[0.12em] text-xs md:text-sm font-black flex items-center justify-center gap-2">
                   🔐 GOOGLE
                 </span>
               </motion.button>
 
-              <div className="flex items-center gap-2 text-red-800/50 my-1">
-                <div className="flex-1 h-px bg-red-900/30" />
-                <span className="text-xs font-mono">OR</span>
-                <div className="flex-1 h-px bg-red-900/30" />
+              <div className="flex items-center gap-3 text-red-800/60 my-1 px-2">
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-red-700/70 to-red-600/70" />
+                <span className="text-[10px] font-mono tracking-[0.25em] text-red-400">OR</span>
+                <div className="flex-1 h-px bg-gradient-to-r from-red-600/70 via-red-700/70 to-transparent" />
               </div>
 
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(255, 0, 0, 0.6)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 42px rgba(255, 0, 0, 0.95)" }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
-                className="w-full py-3 md:py-4 px-4 md:px-6 rounded-lg text-xs md:text-sm tracking-[0.1em] relative overflow-hidden group font-bold transition-all"
+                className="w-full py-3 md:py-4 px-4 md:px-6 rounded-xl text-xs md:text-sm tracking-[0.12em] relative overflow-hidden group font-bold transition-all"
                 style={{
-                  background: "linear-gradient(135deg, #1a0000, #330000)",
-                  border: "2px solid #cc0000",
-                  boxShadow: "0 0 15px rgba(204, 0, 0, 0.3), inset 0 0 15px rgba(255, 0, 0, 0.05)",
+                  background: "linear-gradient(135deg, #3a0d0d 0%, #680d0d 35%, #9c1a1a 100%)",
+                  border: "2px solid rgba(255, 120, 120, 0.9)",
+                  boxShadow: "0 0 18px rgba(255, 0, 0, 0.6), inset 0 0 18px rgba(255,255,255,0.07)",
                 }}
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: "linear-gradient(135deg, #4d0000, #1a0000)" }}
+                  style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,0,0,0.38))" }}
                 />
-                <span className="relative text-red-300 tracking-[0.1em] text-xs md:text-sm font-bold flex items-center justify-center gap-2">
+                <span className="relative text-white tracking-[0.12em] text-xs md:text-sm font-black flex items-center justify-center gap-2">
                   ⚙️ GITHUB
                 </span>
               </motion.button>
@@ -289,7 +289,7 @@ export default function Home() {
 
           {/* FOOTER TEXT */}
           <div className="space-y-2">
-            <p className="text-red-800/80 text-xs md:text-sm tracking-[0.3em] font-mono">
+            <p className="inline-block border border-red-700/50 bg-black/40 px-4 py-2 text-red-200 text-xs md:text-sm tracking-[0.35em] font-mono shadow-[0_0_20px_rgba(255,0,0,0.25)]">
               CYBERVAULT ACADEMY
             </p>
             <p className="text-red-900/60 text-xs tracking-[0.25em] font-mono">
