@@ -62,186 +62,191 @@ export default function Home() {
       <TopBar />
 
       {/* MAIN CONTENT */}
-      <div className="relative z-20 flex flex-col items-center justify-between min-h-[calc(100vh-60px)] px-8 py-12">
+      <div className="relative z-20 flex flex-col items-center justify-between min-h-[calc(100vh-60px)] px-4 md:px-8 py-6 md:py-12">
 
-        {/* LOGO AREA - TOP SECTION */}
+        {/* TOP SECTION - BRANDING (30% of space) */}
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-8 mt-8"
+          transition={{ duration: 1 }}
+          className="text-center w-full"
         >
-          {/* TOP LABEL WITH GLOW */}
+          {/* DECORATIVE TOP ELEMENT */}
           <motion.div
-            className="text-blue-400 text-xs tracking-[0.5em] mb-6 font-bold"
-            animate={{ opacity: [0.5, 1, 0.5] }}
+            className="text-red-600 text-2xl md:text-3xl font-black tracking-[0.8em] mb-4"
+            animate={{ opacity: [0.3, 0.8, 0.3] }}
             transition={{ repeat: Infinity, duration: 3 }}
-            style={{ textShadow: "0 0 20px rgba(96, 165, 250, 0.8)" }}
           >
-            ⚡ SECURE TRAINING NEXUS ⚡
+            ▼ ▼ ▼
           </motion.div>
 
-          {/* MAIN TITLE WITH MASSIVE GLOW */}
-          <motion.h1
-            className="text-6xl md:text-7xl font-black tracking-[0.08em] mb-3"
-            style={{
-              background: "linear-gradient(135deg, #4285F4, #60a5fa, #4285F4)",
-              backgroundSize: "200% 200%",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              filter: "drop-shadow(0 0 20px rgba(66, 133, 244, 0.6))",
-            }}
-            animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-            transition={{ repeat: Infinity, duration: 4 }}
+          {/* MAIN TITLE */}
+          <motion.div
+            className="mb-2"
+            animate={{ opacity: [0.7, 1, 0.7] }}
+            transition={{ repeat: Infinity, duration: 2.5 }}
           >
-            CYBERVAULT
-          </motion.h1>
+            <h1 
+              className="text-5xl md:text-7xl font-black tracking-[0.15em] mb-1"
+              style={{
+                color: "#ff0000",
+                textShadow: "0 0 40px rgba(255, 0, 0, 0.8), 0 0 80px rgba(255, 0, 0, 0.4)",
+                letterSpacing: "0.15em",
+              }}
+            >
+              CYBER
+            </h1>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            <h2 
+              className="text-4xl md:text-6xl font-black tracking-[0.2em] mb-4"
+              style={{
+                background: "linear-gradient(90deg, #ff0000, #cc0000, #ff0000)",
+                backgroundSize: "200% 100%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                animation: "gradient 3s ease infinite",
+              }}
+            >
+              VAULT
+            </h2>
+          </motion.div>
 
           {/* SUBTITLE */}
           <motion.div
-            className="text-xl md:text-2xl tracking-[0.2em] mb-6"
-            style={{
-              color: "#ff6b6b",
-              textShadow: "0 0 15px rgba(255, 107, 107, 0.5)",
-            }}
+            className="text-red-500/80 text-xs md:text-sm tracking-[0.4em] font-mono mb-6"
+            animate={{ opacity: [0.4, 1, 0.4] }}
+            transition={{ repeat: Infinity, duration: 2 }}
           >
-            ACADEMY
+            [ SECURE TRAINING NEXUS ]
           </motion.div>
 
-          {/* BADGE SECTION */}
-          <div className="flex items-center justify-center gap-4 mb-4 flex-wrap">
-            <motion.div
-              className="px-4 py-2 rounded-full text-xs font-bold tracking-[0.2em]"
-              style={{
-                background: "linear-gradient(135deg, rgba(66, 133, 244, 0.2), rgba(96, 165, 250, 0.2))",
-                border: "1px solid rgba(66, 133, 244, 0.5)",
-                color: "#60a5fa",
-              }}
-              whileHover={{ scale: 1.1 }}
-            >
-              🛡️ SECURE
-            </motion.div>
-            <motion.div
-              className="px-4 py-2 rounded-full text-xs font-bold tracking-[0.2em]"
-              style={{
-                background: "linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 87, 87, 0.2))",
-                border: "1px solid rgba(255, 107, 107, 0.5)",
-                color: "#ff6b6b",
-              }}
-              whileHover={{ scale: 1.1 }}
-            >
-              🎓 CERTIFIED
-            </motion.div>
-            <motion.div
-              className="px-4 py-2 rounded-full text-xs font-bold tracking-[0.2em]"
-              style={{
-                background: "linear-gradient(135deg, rgba(51, 220, 130, 0.2), rgba(52, 211, 153, 0.2))",
-                border: "1px solid rgba(51, 220, 130, 0.5)",
-                color: "#33dc82",
-              }}
-              whileHover={{ scale: 1.1 }}
-            >
-              ✓ VERIFIED
-            </motion.div>
-          </div>
-
-          <div className="flex items-center gap-3 justify-center">
-            <div className="h-px w-12 bg-red-800/40" />
-            <span className="text-red-400/80 text-xs tracking-[0.4em] font-semibold">INTEL DIVISION</span>
-            <div className="h-px w-12 bg-red-800/40" />
+          {/* DECORATIVE LINE */}
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-transparent to-red-600" />
+            <span className="text-red-600 text-xs tracking-[0.3em]">///</span>
+            <div className="h-px flex-1 max-w-[60px] bg-gradient-to-l from-transparent to-red-600" />
           </div>
         </motion.div>
 
-        {/* LOGIN CARD - MIDDLE/BOTTOM SECTION */}
+        {/* MIDDLE SECTION - LOGIN CARD (40% of space) */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative w-full max-w-md mb-12"
+          className="relative w-full max-w-md my-4"
         >
-          {/* CARD BORDER GLOW */}
-          <div className="absolute inset-0 rounded-2xl"
-            style={{ boxShadow: "0 0 60px rgba(66, 133, 244, 0.2), inset 0 0 40px rgba(0,0,0,0.5)" }}
+          {/* CARD GLOW EFFECT */}
+          <div 
+            className="absolute inset-0 rounded-lg blur-2xl"
+            style={{ 
+              background: "linear-gradient(135deg, rgba(255, 0, 0, 0.3), rgba(200, 0, 0, 0.1))",
+            }}
           />
 
-          <div className="relative bg-black/80 border border-blue-500/40 rounded-2xl p-8 backdrop-blur-xl">
-
-            {/* CARD TOP */}
-            <div className="flex items-center justify-between mb-6">
-              <span className="text-blue-400/80 text-xs tracking-[0.3em] font-bold">▲ AUTHENTICATE</span>
+          <div 
+            className="relative bg-black/90 border-2 rounded-lg p-6 md:p-8 backdrop-blur-md"
+            style={{ borderColor: "rgba(255, 0, 0, 0.5)" }}
+          >
+            {/* CARD HEADER */}
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-red-900/40">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-red-600 rounded-full animate-pulse" />
+                <span className="text-red-600 text-xs md:text-sm tracking-[0.3em] font-bold">ACCESS</span>
+              </div>
               <div className="flex gap-1">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-                <motion.div 
-                  className="w-1.5 h-1.5 rounded-full bg-blue-300"
-                  animate={{ opacity: [0.3, 1, 0.3] }}
-                  transition={{ repeat: Infinity, duration: 1.5 }}
-                />
+                <motion.div className="w-1 h-1 rounded-full bg-red-700" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.5 }} />
+                <motion.div className="w-1 h-1 rounded-full bg-red-600" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1.5, delay: 0.2 }} />
+                <motion.div className="w-1 h-1 rounded-full bg-red-500" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1.5, delay: 0.4 }} />
               </div>
             </div>
 
-            <p className="text-gray-400 text-xs mb-8 tracking-wider font-medium">
-              SECURE ACCESS REQUIRED FOR CLASSIFIED TRAINING MODULES
+            <p className="text-gray-400 text-xs md:text-sm mb-8 tracking-wider leading-relaxed font-mono">
+              AUTHENTICATION REQUIRED<br/>
+              CLEARANCE LEVEL: SECRET<br/>
+              STATUS: ARMED
             </p>
 
             {/* BUTTONS */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3 md:gap-4">
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(66, 133, 244, 0.6)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(255, 0, 0, 0.8)" }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
-                className="w-full py-4 px-6 rounded-xl text-sm tracking-widest relative overflow-hidden group font-semibold"
+                className="w-full py-3 md:py-4 px-4 md:px-6 rounded-lg text-xs md:text-sm tracking-widest relative overflow-hidden group font-bold transition-all"
                 style={{
-                  background: "linear-gradient(135deg, #4285F4, #3367D6)",
-                  border: "2px solid #4285F4",
-                  boxShadow: "0 0 20px rgba(66, 133, 244, 0.3)",
+                  background: "linear-gradient(135deg, #990000, #660000)",
+                  border: "2px solid #ff0000",
+                  boxShadow: "0 0 20px rgba(255, 0, 0, 0.4), inset 0 0 20px rgba(255, 0, 0, 0.1)",
                 }}
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: "linear-gradient(135deg, #5A9FFF, #4285F4)" }}
+                  style={{ background: "linear-gradient(135deg, #cc0000, #990000)" }}
                 />
-                <span className="relative text-white tracking-[0.2em] text-sm font-bold flex items-center justify-center gap-2">
-                  🔐 GOOGLE ACCESS
+                <span className="relative text-white tracking-[0.15em] text-xs md:text-sm font-black">
+                  🔐 GOOGLE AUTH
                 </span>
               </motion.button>
 
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(96, 165, 250, 0.5)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(255, 0, 0, 0.6)" }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
-                className="w-full py-4 px-6 rounded-xl text-sm tracking-widest relative overflow-hidden group font-semibold"
+                className="w-full py-3 md:py-4 px-4 md:px-6 rounded-lg text-xs md:text-sm tracking-widest relative overflow-hidden group font-bold transition-all"
                 style={{
-                  background: "linear-gradient(135deg, #1f2937, #374151)",
-                  border: "2px solid #60a5fa",
-                  boxShadow: "0 0 20px rgba(96, 165, 250, 0.3)",
+                  background: "linear-gradient(135deg, #1a0000, #330000)",
+                  border: "2px solid #cc0000",
+                  boxShadow: "0 0 20px rgba(204, 0, 0, 0.3), inset 0 0 20px rgba(255, 0, 0, 0.05)",
                 }}
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: "linear-gradient(135deg, #4b5563, #2d3748)" }}
+                  style={{ background: "linear-gradient(135deg, #4d0000, #1a0000)" }}
                 />
-                <span className="relative text-white tracking-[0.2em] text-sm font-bold flex items-center justify-center gap-2">
-                  ⚙️ GITHUB ACCESS
+                <span className="relative text-red-300 tracking-[0.15em] text-xs md:text-sm font-black">
+                  ⚙️ GITHUB AUTH
                 </span>
               </motion.button>
             </div>
 
-            {/* BOTTOM WARNING */}
-            <div className="mt-6 pt-4 border-t border-blue-900/30">
-              <p className="text-blue-600/60 text-xs text-center tracking-wider font-semibold">
-                🔒 AUTHORIZED ACCESS ONLY - ALL ACTIVITY LOGGED
+            {/* CARD FOOTER */}
+            <div className="mt-6 pt-4 border-t border-red-900/40">
+              <p className="text-red-700/70 text-xs text-center tracking-widest font-mono">
+                ENCRYPTED • MONITORED • SECURE
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* BOTTOM STATUS */}
+        {/* BOTTOM SECTION - STATUS (30% of space) */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="text-blue-900/50 text-xs tracking-[0.4em] font-mono"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="text-center w-full"
         >
-          CYBERVAULT ACADEMY // EST. 2024
+          {/* BOTTOM DECORATIVE */}
+          <motion.div
+            className="text-red-900/60 text-xl md:text-2xl font-black tracking-[0.8em] mb-3"
+            animate={{ opacity: [0.3, 0.6, 0.3] }}
+            transition={{ repeat: Infinity, duration: 3 }}
+          >
+            ▲ ▲ ▲
+          </motion.div>
+
+          {/* FOOTER TEXT */}
+          <div className="space-y-2">
+            <p className="text-red-800/80 text-xs md:text-sm tracking-[0.3em] font-mono">
+              CYBERVAULT ACADEMY
+            </p>
+            <p className="text-red-900/60 text-xs tracking-[0.25em] font-mono">
+              EST.2024 • CLASSIFIED • ENCRYPTED
+            </p>
+          </div>
         </motion.div>
 
       </div>
