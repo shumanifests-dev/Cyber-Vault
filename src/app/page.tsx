@@ -134,20 +134,43 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* MIDDLE SECTION - LOGIN CARD (40% of space) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative w-full max-w-md my-4"
-        >
-          {/* CARD GLOW EFFECT */}
-          <div 
-            className="absolute inset-0 rounded-lg blur-2xl"
-            style={{ 
-              background: "linear-gradient(135deg, rgba(255, 0, 0, 0.3), rgba(200, 0, 0, 0.1))",
-            }}
-          />
+        {/* MIDDLE SECTION - FEATURES & LOGIN CARD (50% of space) */}
+        <div className="relative w-full max-w-6xl my-2 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-center">
+          {/* LEFT FEATURE PANEL */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="hidden md:flex flex-col justify-center space-y-3"
+          >
+            <div className="bg-black/60 border border-red-900/50 rounded-lg p-3 backdrop-blur-sm hover:border-red-700/70 transition-colors">
+              <div className="text-red-600 text-sm font-bold mb-2">🛡️ PHISHING</div>
+              <p className="text-gray-400 text-xs leading-tight">Email auth, social engineering, attack scenarios</p>
+            </div>
+            <div className="bg-black/60 border border-red-900/50 rounded-lg p-3 backdrop-blur-sm hover:border-red-700/70 transition-colors">
+              <div className="text-red-600 text-sm font-bold mb-2">🔐 THREATS</div>
+              <p className="text-gray-400 text-xs leading-tight">Malware analysis, vulnerability assessment, response</p>
+            </div>
+            <div className="bg-black/60 border border-red-900/50 rounded-lg p-3 backdrop-blur-sm hover:border-red-700/70 transition-colors">
+              <div className="text-red-600 text-sm font-bold mb-2">📊 COMPLIANCE</div>
+              <p className="text-gray-400 text-xs leading-tight">GDPR, HIPAA, industry security standards</p>
+            </div>
+          </motion.div>
+
+          {/* CENTER LOGIN CARD */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="md:col-span-1 flex flex-col justify-center"
+          >
+            {/* CARD GLOW EFFECT */}
+            <div 
+              className="absolute inset-0 rounded-lg blur-2xl -z-10"
+              style={{ 
+                background: "linear-gradient(135deg, rgba(255, 0, 0, 0.3), rgba(200, 0, 0, 0.1))",
+              }}
+            />
 
           <div 
             className="relative bg-black/90 border-2 rounded-lg p-6 md:p-8 backdrop-blur-md"
@@ -173,42 +196,48 @@ export default function Home() {
             </p>
 
             {/* BUTTONS */}
-            <div className="flex flex-col gap-3 md:gap-4">
+            <div className="flex flex-col gap-3">
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(255, 0, 0, 0.8)" }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
-                className="w-full py-3 md:py-4 px-4 md:px-6 rounded-lg text-xs md:text-sm tracking-widest relative overflow-hidden group font-bold transition-all"
+                className="w-full py-3 md:py-4 px-4 md:px-6 rounded-lg text-xs md:text-sm tracking-[0.1em] relative overflow-hidden group font-bold transition-all"
                 style={{
                   background: "linear-gradient(135deg, #990000, #660000)",
                   border: "2px solid #ff0000",
-                  boxShadow: "0 0 20px rgba(255, 0, 0, 0.4), inset 0 0 20px rgba(255, 0, 0, 0.1)",
+                  boxShadow: "0 0 15px rgba(255, 0, 0, 0.4), inset 0 0 15px rgba(255, 0, 0, 0.1)",
                 }}
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ background: "linear-gradient(135deg, #cc0000, #990000)" }}
                 />
-                <span className="relative text-white tracking-[0.15em] text-xs md:text-sm font-black">
-                  🔐 GOOGLE AUTH
+                <span className="relative text-white tracking-[0.1em] text-xs md:text-sm font-bold flex items-center justify-center gap-2">
+                  🔐 GOOGLE
                 </span>
               </motion.button>
+
+              <div className="flex items-center gap-2 text-red-800/50 my-1">
+                <div className="flex-1 h-px bg-red-900/30" />
+                <span className="text-xs font-mono">OR</span>
+                <div className="flex-1 h-px bg-red-900/30" />
+              </div>
 
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(255, 0, 0, 0.6)" }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
-                className="w-full py-3 md:py-4 px-4 md:px-6 rounded-lg text-xs md:text-sm tracking-widest relative overflow-hidden group font-bold transition-all"
+                className="w-full py-3 md:py-4 px-4 md:px-6 rounded-lg text-xs md:text-sm tracking-[0.1em] relative overflow-hidden group font-bold transition-all"
                 style={{
                   background: "linear-gradient(135deg, #1a0000, #330000)",
                   border: "2px solid #cc0000",
-                  boxShadow: "0 0 20px rgba(204, 0, 0, 0.3), inset 0 0 20px rgba(255, 0, 0, 0.05)",
+                  boxShadow: "0 0 15px rgba(204, 0, 0, 0.3), inset 0 0 15px rgba(255, 0, 0, 0.05)",
                 }}
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ background: "linear-gradient(135deg, #4d0000, #1a0000)" }}
                 />
-                <span className="relative text-red-300 tracking-[0.15em] text-xs md:text-sm font-black">
-                  ⚙️ GITHUB AUTH
+                <span className="relative text-red-300 tracking-[0.1em] text-xs md:text-sm font-bold flex items-center justify-center gap-2">
+                  ⚙️ GITHUB
                 </span>
               </motion.button>
             </div>
@@ -220,9 +249,29 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </motion.div>
+          </motion.div>
 
-        {/* BOTTOM SECTION - STATUS (30% of space) */}
+          {/* RIGHT FEATURE PANEL */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="hidden md:flex flex-col justify-center space-y-3"
+          >
+            <div className="bg-black/60 border border-red-900/50 rounded-lg p-3 backdrop-blur-sm hover:border-red-700/70 transition-colors">
+              <div className="text-red-600 text-sm font-bold mb-2">🎯 RANSOMWARE</div>
+              <p className="text-gray-400 text-xs leading-tight">Encryption, backups, recovery procedures</p>
+            </div>
+            <div className="bg-black/60 border border-red-900/50 rounded-lg p-3 backdrop-blur-sm hover:border-red-700/70 transition-colors">
+              <div className="text-red-600 text-sm font-bold mb-2">💻 FORENSICS</div>
+              <p className="text-gray-400 text-xs leading-tight">Evidence collection, timeline analysis, investigation</p>
+            </div>
+            <div className="bg-black/60 border border-red-900/50 rounded-lg p-3 backdrop-blur-sm hover:border-red-700/70 transition-colors">
+              <div className="text-red-600 text-sm font-bold mb-2">🔍 SOC TRAINING</div>
+              <p className="text-gray-400 text-xs leading-tight">SIEM tools, threat detection, operations</p>
+            </div>
+          </motion.div>
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
