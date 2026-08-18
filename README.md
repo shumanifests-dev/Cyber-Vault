@@ -10,6 +10,19 @@ An interactive platform for cybersecurity ethics training and awareness, featuri
 - 📊 **Dashboard** - User progress tracking and performance analytics
 - 🛡️ **Security-First** - Built with TypeScript and security headers
 
+## Training Modules
+
+CyberVault Academy offers comprehensive cybersecurity training across six specialized domains:
+
+| Module | Focus Area | Key Topics |
+|--------|-----------|-----------|
+| 🛡️ **Phishing Defense** | Email Security | Email authentication, social engineering tactics, attack scenario analysis |
+| 🔐 **Threat Intelligence** | Threat Analysis | Malware analysis, vulnerability assessment, incident response protocols |
+| 📊 **Compliance** | Regulatory Standards | GDPR compliance, HIPAA requirements, industry security standards |
+| 🎯 **Ransomware Protection** | Data Protection | Encryption mechanisms, backup strategies, recovery procedures |
+| 💻 **Digital Forensics** | Investigation | Evidence collection, timeline analysis, forensic investigation techniques |
+| 🔍 **SOC Training** | Security Operations | SIEM tools, threat detection, security operations center workflows |
+
 ## Prerequisites
 
 - Node.js 18+ or Bun
