@@ -1,136 +1,144 @@
-# Cyber Ethics Portal
+# Cyber Vault
 
-An interactive platform for cybersecurity ethics training and awareness, featuring a cyberpunk-themed interface and engaging case studies.
+Cyber Vault is a cybersecurity training and learning portal built with Next.js and NextAuth. It combines a dark cyberpunk interface with a secure authentication flow, training-focused landing experience, and a dashboard-driven learning workflow for security awareness and cyber defense education.
+
+## Architecture
+
+This project follows a simple but practical Next.js App Router architecture:
+
+- App Router structure under `src/app` for pages, routes, and layout
+- `src/auth.ts` handles the central NextAuth configuration
+- Google and GitHub OAuth providers are registered for sign-in
+- Environment validation is handled in `src/lib/env.ts` before app startup
+- UI layers are separated into reusable components such as the cyberpunk background system and top status bar
+- Security and app metadata are managed in the root layout and Next.js config
+
+### Main architectural pieces
+
+- `src/app/page.tsx` - landing/authentication screen
+- `src/app/dashboard/page.tsx` - authenticated dashboard experience
+- `src/app/case/[id]/page.tsx` - case study detail flow
+- `src/app/api/auth/[...nextauth]/route.ts` - NextAuth route
+- `src/auth.ts` - auth provider setup and callbacks
+- `src/lib/env.ts` - required environment variable validation
+- `src/components/CyberpunkBackground.tsx` - animated cyber background system
+- `src/components/TopBar.tsx` - top status UI
+
+## What is in this app
+
+This app includes:
+
+- a secure cyber-themed login landing page
+- Google and GitHub authentication
+- a dashboard area for authenticated users
+- cyber training content modules and learning-focused sections
+- cyber incident/case study pages
+- animated red-black cyberpunk interface styling
+- security-aware app configuration and environment checks
 
 ## Features
 
-- 🔐 **Secure Authentication** - OAuth2 login via Google and GitHub using NextAuth
-- 📚 **Interactive Case Studies** - Real-world cybersecurity scenarios with quiz-based learning
-- 🎨 **Cyberpunk UI** - Immersive dark theme with glitch effects and animations
-- 📊 **Dashboard** - User progress tracking and performance analytics
-- 🛡️ **Security-First** - Built with TypeScript and security headers
+- 🔐 Google and GitHub OAuth login
+- 🛡️ Cybersecurity-themed learning experience
+- 📚 Training module information for phishing, threat intelligence, compliance, ransomware, forensics, and SOC operations
+- 🎨 Red/black cyberpunk UI with animated background effects
+- 🚦 Protected authenticated flow with dashboard redirection
+- ⚙️ Runtime validation for required environment variables
+- 🔒 Security headers and hardened app configuration
+- 📱 Responsive landing layout for desktop and mobile screens
 
-## Training Modules
+## Technologies used
 
-CyberVault Academy offers comprehensive cybersecurity training across six specialized domains:
+- Next.js 16
+- React 19
+- TypeScript
+- NextAuth v5
+- Tailwind CSS
+- Framer Motion
+- ESLint
 
-| Module | Focus Area | Key Topics |
-|--------|-----------|-----------|
-| 🛡️ **Phishing Defense** | Email Security | Email authentication, social engineering tactics, attack scenario analysis |
-| 🔐 **Threat Intelligence** | Threat Analysis | Malware analysis, vulnerability assessment, incident response protocols |
-| 📊 **Compliance** | Regulatory Standards | GDPR compliance, HIPAA requirements, industry security standards |
-| 🎯 **Ransomware Protection** | Data Protection | Encryption mechanisms, backup strategies, recovery procedures |
-| 💻 **Digital Forensics** | Investigation | Evidence collection, timeline analysis, forensic investigation techniques |
-| 🔍 **SOC Training** | Security Operations | SIEM tools, threat detection, security operations center workflows |
+## Project structure
 
-## Prerequisites
+```text
+src/
+├── app/
+│   ├── api/
+│   │   └── auth/
+│   │       └── [...nextauth]/
+│   │           └── route.ts
+│   ├── case/
+│   │   └── [id]/
+│   │       └── page.tsx
+│   ├── dashboard/
+│   │   └── page.tsx
+│   ├── error.tsx
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── not-found.tsx
+│   ├── page.tsx
+│   └── providers.tsx
+├── auth.ts
+├── components/
+│   ├── CyberpunkBackground.tsx
+│   └── TopBar.tsx
+├── lib/
+│   └── env.ts
+└── types/
+```
 
-- Node.js 18+ or Bun
-- npm, yarn, pnpm, or bun package manager
+## Environment variables
 
-## Getting Started
+Create a `.env.local` file with the following values:
 
-### 1. Clone and Install
+```env
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret-key
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+GITHUB_ID=your-github-client-id
+GITHUB_SECRET=your-github-client-secret
+```
+
+## Local development
 
 ```bash
-git clone <repository-url>
-cd cyber-ethics-portal
 npm install
-```
-
-### 2. Environment Setup
-
-Copy `.env.example` to `.env.local` and fill in your credentials:
-
-```bash
-cp .env.example .env.local
-```
-
-Required environment variables:
-- `NEXTAUTH_URL` - Your application URL (e.g., http://localhost:3000)
-- `NEXTAUTH_SECRET` - A secure random string for session encryption
-- `GOOGLE_CLIENT_ID` & `GOOGLE_CLIENT_SECRET` - From Google Cloud Console
-- `GITHUB_ID` & `GITHUB_SECRET` - From GitHub OAuth settings
-
-### 3. Run Development Server
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the application.
+Open: http://localhost:3000
 
-## Project Structure
-
-```
-src/
-├── app/                 # Next.js app directory
-│   ├── api/            # API routes (NextAuth)
-│   ├── case/           # Case study pages
-│   ├── dashboard/      # User dashboard
-│   ├── layout.tsx      # Root layout with metadata
-│   └── page.tsx        # Login page
-├── components/         # Reusable React components
-├── lib/                # Utility functions and helpers
-└── auth.ts            # NextAuth configuration
-```
-
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint validation
-
-## Tech Stack
-
-- **Framework**: Next.js 16 with React 19
-- **Authentication**: NextAuth v5
-- **Styling**: Tailwind CSS v4
-- **Animations**: Framer Motion
-- **Language**: TypeScript
-- **Linting**: ESLint
-
-## Security Features
-
-- ✅ CORS and XSS protection headers
-- ✅ Secure session management with CSRF tokens
-- ✅ OAuth2 provider integration
-- ✅ Environment variable validation
-- ✅ Type-safe authentication callbacks
-- ✅ Robots.txt protection (no indexing)
-
-## Development Guidelines
-
-- Always validate environment variables on startup
-- Use TypeScript for type safety
-- Follow ESLint configuration
-- Add proper error boundaries for components
-- Test authentication flows thoroughly
-
-## Deployment
-
-### Vercel (Recommended)
+## Production build
 
 ```bash
-npm i -g vercel
-vercel
+npm run build
+npm run start
 ```
 
-Set environment variables in Vercel dashboard.
+## Deploy on Vercel
 
-### Other Platforms
+1. Push this project to a GitHub repository.
+2. Go to https://vercel.com
+3. Import the repository.
+4. Add the required environment variables in the Vercel project settings.
+5. Deploy the project.
 
-Ensure Node.js 18+ is installed and use `npm run build && npm run start`.
+### Required Vercel environment variables
 
-## Contributing
+- `NEXTAUTH_URL`
+- `NEXTAUTH_SECRET`
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `GITHUB_ID`
+- `GITHUB_SECRET`
 
-When making changes:
-1. Follow the existing code style
-2. Add TypeScript types for new functions
-3. Test authentication and API routes
-4. Run `npm run lint` before committing
+### Recommended Vercel setup
 
-## Support
+- Framework Preset: Next.js
+- Build Command: `npm run build`
+- Output Directory: `.next`
 
-For issues or questions, please open a GitHub issue.
+## Notes
+
+This app is designed as a cyber training platform with a security-focused identity layer and dark cyberpunk interface. The front end is intentionally themed around cyber defense, training, and operational awareness, while the backend/authentication flow remains simple and secure.
+
