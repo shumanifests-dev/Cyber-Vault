@@ -115,29 +115,6 @@ npm run build
 npm run start
 ```
 
-## Deploy on Vercel
-
-1. Push this project to a GitHub repository.
-2. Go to https://vercel.com
-3. Import the repository.
-4. Add the required environment variables in the Vercel project settings.
-5. Deploy the project.
-
-### Required Vercel environment variables
-
-- `NEXTAUTH_URL`
-- `NEXTAUTH_SECRET`
-- `GOOGLE_CLIENT_ID`
-- `GOOGLE_CLIENT_SECRET`
-- `GITHUB_ID`
-- `GITHUB_SECRET`
-
-### Recommended Vercel setup
-
-- Framework Preset: Next.js
-- Build Command: `npm run build`
-- Output Directory: `.next`
-
 ## Notes
 
 This app is designed as a cyber training platform with a security-focused identity layer and dark cyberpunk interface. The front end is intentionally themed around cyber defense, training, and operational awareness, while the backend/authentication flow remains simple and secure.
